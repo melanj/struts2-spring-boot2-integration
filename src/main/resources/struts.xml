@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.action.extension" value="html"/>
+    <constant name="struts.convention.action.packages" value="com.amdexa.example.structs2.action"/>
+    <constant name="struts.convention.classes.reload" value="false" />
+    <constant name="struts.convention.exclude.parentClassLoader" value="false" />
+    <constant name="struts.custom.i18n.resources" value="messages" />
+
+    <package name="default" extends="struts-default" namespace="/">
+    </package>
+
+    <constant name="struts.ckeditor.allowUploads" value="true" />
+    <constant name="struts.ckeditor.allowedFileExtensions" value="jpg,jpeg,png" />
+    <constant name="struts.ckeditor.uploadFolder" value="/imageUploads" />
+</struts>
