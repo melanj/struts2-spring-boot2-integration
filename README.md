@@ -2,7 +2,7 @@ Spring Boot2 with Struts 2.5
 =========================
 This is a sample Spring boot2 application integrated with Struts 2.5 and Struts2 jQuery Plugin
 
-##Motivation
+## Motivation
 I am a big fan of Struts2 since 2007
 
 ## Technology Stack
