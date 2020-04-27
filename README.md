@@ -14,4 +14,5 @@ I am a big fan of Struts2 since 2007 but almost no one's using it really now nor
 
 ## Prerequisites
 
-* Java 8 or greater 
+* Java 8 or greater
+* Apache maven 3.2 or later
