@@ -42,8 +42,21 @@ public class ApplicationTest {
         //Verify request succeed
         assertEquals(302, result.getStatusCodeValue());
         assertTrue(result.getHeaders().containsKey("location"));
-        assertTrue(result.getHeaders().containsKey("location"));
         assertEquals("http://localhost:" + randomServerPort + "/index.html",
                 result.getHeaders().getFirst("location"));
+    }
+
+    @Test
+    void indexPageHtmlRenderTest() throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+        URI uri = new URI("http://localhost:" + randomServerPort + "/index.html");
+        ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
+        //Verify request succeed
+        assertEquals(200, result.getStatusCodeValue());
+        String body = result.getBody();
+        assertNotNull(body);
+        assertTrue(body.startsWith("<!DOCTYPE html>"));
+        assertTrue(body.contains("/struts/js/struts2/jquery.struts2.min.js"));
+        assertTrue(body.endsWith("</html>"));
     }
 }
