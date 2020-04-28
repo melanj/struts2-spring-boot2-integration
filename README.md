@@ -2,8 +2,8 @@ Spring Boot2 with Struts 2.5
 =========================
 This is a sample Spring boot2 application integrated with Struts 2.5 and Struts2 jQuery Plugin
 
-##Motivation
-I am a big fan of Struts2 since 2007
+## Motivation
+I am a big fan of Struts2 since 2007 but almost no one's using it really now nor wants to adapt to a new project. So I created this sample project to play with it.  
 
 ## Technology Stack
 * Spring Boot 2.2.6.RELEASE
@@ -14,4 +14,5 @@ I am a big fan of Struts2 since 2007
 
 ## Prerequisites
 
-* Java 8 or greater 
+* Java 8 or greater
+* Apache maven 3.2 or later
