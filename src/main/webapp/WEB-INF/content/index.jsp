@@ -12,6 +12,7 @@
   <sj:tab id="tab1" target="location" label="Location"/>
   <sj:tab id="tab2" target="ip" label="IP"/>
   <sj:tab id="tab3" target="browser" label="Web browser"/>
+  <sj:tab id="tab4" target="bgp" label="BGP data"/>
   <div id="location">
     <p>Hi! 👋 It looks like your location is currently: <s:property value="timeZone"/></p>
     <p>Where the local time is: <s:property value="time"/></p>
@@ -27,6 +28,9 @@
   <div id="browser">
       <p>Your web browser is: <s:property value="browser"/></p>
   </div>
+    <div id="bgp">
+        <p><pre><s:property value="bgpData"/></pre></p>
+    </div>
 </sj:tabbedpanel>
 </body>
 </html>
