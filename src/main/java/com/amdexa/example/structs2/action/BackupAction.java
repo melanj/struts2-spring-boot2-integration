@@ -45,7 +45,7 @@ public class BackupAction extends ActionSupport {
             @Result(location = "wait.jsp", name = "wait"),
             @Result(location = "fail.jsp", name = ERROR)})
     public String execute() {
-        String baseName = String.format(/*"%s_%s_%s"*/"%s", /*hostname, database, */timestamp);
+        String baseName = String.format("%s_%s", database, timestamp);
         String tempDir = System.getProperty("java.io.tmpdir");
         String sqlFileName = String.format("%s.sql", baseName);
         String sqlFilePath = String.format("%s/%s", tempDir, sqlFileName);

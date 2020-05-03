@@ -42,7 +42,7 @@
             <s:password name="password" label="Password" />
             <s:textfield name="database" label="Database" />
             <s:hidden name="timestamp" value="%{timestamp}" />
-            <s:submit value="Login" />
+            <s:submit value="Backup" />
         </s:form>
     </div>
   </div>

@@ -23,12 +23,17 @@ public class DownloadAction extends ActionSupport {
             @Result(name = SUCCESS, type = "stream", params = {
                     "contentType", "application/octet-stream",
                     "inputName", "fileInputStream",
-                    "contentDisposition", "attachment;filename=\"backup.{1}\"",
+                    "contentDisposition", "attachment;filename=\"${filename}.{1}\"",
                     "bufferSize", "1024"
-            })})
+            }),
+            @Result(location = "fail.jsp", name = ERROR)})
     public String execute() throws Exception {
-        String tempDir = System.getProperty("java.io.tmpdir");
-        setFileInputStream(new FileInputStream(new File(tempDir + "/" + filename + "." + getType())));
-        return SUCCESS;
+        try {
+            String tempDir = System.getProperty("java.io.tmpdir");
+            setFileInputStream(new FileInputStream(new File(tempDir + "/" + filename + "." + getType())));
+            return SUCCESS;
+        } catch (Exception e) {
+            return ERROR;
+        }
     }
 }
