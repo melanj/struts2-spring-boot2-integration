@@ -1,0 +1,34 @@
+package com.amdexa.example.structs2.action;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+import com.opensymphony.xwork2.ActionSupport;
+import lombok.Getter;
+import lombok.Setter;
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+
+@Getter
+@Setter
+public class DownloadAction extends ActionSupport {
+
+    private InputStream fileInputStream;
+    private String type;
+    private String filename;
+
+    @Override
+    @Action(value = "/download/*", params = {"type", "{1}"}, results = {
+            @Result(name = SUCCESS, type = "stream", params = {
+                    "contentType", "application/octet-stream",
+                    "inputName", "fileInputStream",
+                    "contentDisposition", "attachment;filename=\"backup.{1}\"",
+                    "bufferSize", "1024"
+            })})
+    public String execute() throws Exception {
+        String tempDir = System.getProperty("java.io.tmpdir");
+        setFileInputStream(new FileInputStream(new File(tempDir + "/" + filename + "." + getType())));
+        return SUCCESS;
+    }
+}

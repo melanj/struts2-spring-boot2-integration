@@ -6,13 +6,15 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Hello</title>
-    <sj:head jqueryui="true" jquerytheme="cupertino"/></head>
+    <sj:head jqueryui="true" jquerytheme="cupertino"/>
+</head>
 <body>
 <sj:tabbedpanel id="localtabs">
   <sj:tab id="tab1" target="location" label="Location"/>
   <sj:tab id="tab2" target="ip" label="IP"/>
   <sj:tab id="tab3" target="browser" label="Web browser"/>
   <sj:tab id="tab4" target="bgp" label="BGP data"/>
+  <sj:tab id="tab5" target="mysql" label="Mysql"/>
   <div id="location">
     <p>Hi! 👋 It looks like your location is currently: <s:property value="timeZone"/></p>
     <p>Where the local time is: <s:property value="time"/></p>
@@ -28,9 +30,22 @@
   <div id="browser">
       <p>Your web browser is: <s:property value="browser"/></p>
   </div>
-    <div id="bgp">
+  <div id="bgp">
         <p><pre><s:property value="bgpData"/></pre></p>
+  </div>
+  <div id="mysql">
+    <div align="left">
+        <h3>Backup your MySql database</h3>
+        <s:form action="backup" method="post">
+            <s:textfield name="hostname" label="Hostname" />
+            <s:textfield name="user" label="User" />
+            <s:password name="password" label="Password" />
+            <s:textfield name="database" label="Database" />
+            <s:hidden name="timestamp" value="%{timestamp}" />
+            <s:submit value="Login" />
+        </s:form>
     </div>
+  </div>
 </sj:tabbedpanel>
 </body>
 </html>

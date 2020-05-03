@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -31,6 +32,7 @@ public class IndexAction extends ActionSupport {
     private String as;
     private String browser;
     private String bgpData;
+    private String timestamp;
 
     @Autowired
     private HttpServletRequest request;
@@ -39,6 +41,7 @@ public class IndexAction extends ActionSupport {
     @Override
     @Action(value = "/index", results = {@Result(location = "index.jsp", name = "success")})
     public String execute() {
+        setTimestamp(String.valueOf((new Date()).toInstant().toEpochMilli()));
         setBrowser(request.getHeader("user-agent"));
         RestTemplate restTemplate = new RestTemplate();
         JSONObject response = restTemplate.getForEntity(URL_TIME, JSONObject.class).getBody();
