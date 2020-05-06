@@ -26,7 +26,6 @@ public class Struts2Configuration implements WebMvcConfigurer {
         FilterRegistrationBean<Filter> registration = new FilterRegistrationBean<>();
         registration.setFilter(new StrutsPrepareAndExecuteFilter());
         registration.addUrlPatterns("*.html");
-        registration.addUrlPatterns("/");
         registration.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.FORWARD);
         registration.setName("StrutsPrepareAndExecuteFilter");
         return registration;

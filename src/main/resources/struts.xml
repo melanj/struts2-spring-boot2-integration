@@ -11,7 +11,7 @@
     <constant name="struts.convention.exclude.parentClassLoader" value="false" />
     <constant name="struts.custom.i18n.resources" value="messages" />
 
-    <package name="default" extends="struts-default" namespace="/">
+    <package name="default" extends="struts-default, pdfstream-default" namespace="/">
     </package>
 
     <constant name="struts.ckeditor.allowUploads" value="true" />
