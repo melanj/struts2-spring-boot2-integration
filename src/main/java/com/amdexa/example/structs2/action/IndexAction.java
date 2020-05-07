@@ -58,7 +58,7 @@ public class IndexAction extends ActionSupport {
             setIsp(response.getAsString("isp"));
             setAs(response.getAsString("as"));
         }
-        String res = restTemplate.getForEntity(String.format(URL_BGP_TMPL,"AS208755"), String.class).getBody();
+        String res = restTemplate.getForEntity(String.format(URL_BGP_TMPL,getAs().split(" ")[0]), String.class).getBody();
         if (null != res) {
             int begin = res.indexOf(START_POS_SIG);
             if(begin != -1) {

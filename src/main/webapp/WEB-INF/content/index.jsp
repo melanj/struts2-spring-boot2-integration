@@ -15,6 +15,7 @@
   <sj:tab id="tab3" target="browser" label="Web browser"/>
   <sj:tab id="tab4" target="bgp" label="BGP data"/>
   <sj:tab id="tab5" target="mysql" label="Mysql"/>
+  <sj:tab id="tab6" target="report" label="Report"/>
   <div id="location">
     <p>Hi! 👋 It looks like your location is currently: <s:property value="timeZone"/></p>
     <p>Where the local time is: <s:property value="time"/></p>
@@ -45,6 +46,22 @@
             <s:submit value="Backup" />
         </s:form>
     </div>
+  </div>
+  <div id="report">
+      <h3>Download all information as a PDF</h3>
+          <s:form action="pdf" method="post">
+            <s:hidden name="timeZone" value="%{timeZone}" />
+            <s:hidden name="time" value="%{time}" />
+            <s:hidden name="clientIp" value="%{clientIp}" />
+            <s:hidden name="country" value="%{country}" />
+            <s:hidden name="regionName" value="%{regionName}" />
+            <s:hidden name="city" value="%{city}" />
+            <s:hidden name="isp" value="%{isp}" />
+            <s:hidden name="as" value="%{as}" />
+            <s:hidden name="browser" value="%{browser}" />
+            <s:hidden name="bgpData" value="%{bgpData}" />
+            <s:submit value="Download" />
+          </s:form>
   </div>
 </sj:tabbedpanel>
 </body>

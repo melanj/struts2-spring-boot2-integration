@@ -21,18 +21,24 @@ import java.util.Date;
         })})
 public class PdfDownload extends ActionSupport {
 
-    private String type;
-    private String filename;
+    private String timeZone;
+    private String time;
+    private String clientIp;
+    private String country;
+    private String regionName;
+    private String city;
+    private String isp;
+    private String as;
     private String browser;
+    private String bgpData;
     private String timestamp;
 
     @Autowired
     private HttpServletRequest request;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() {
         setTimestamp("Generated on: " + (new Date()).toInstant().toString());
-        setBrowser(request.getHeader("user-agent"));
         return SUCCESS;
     }
 }
