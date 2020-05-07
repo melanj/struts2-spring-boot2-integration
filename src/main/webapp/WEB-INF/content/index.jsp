@@ -38,10 +38,11 @@
     <div align="left">
         <h3>Backup your MySql database</h3>
         <s:form action="backup" method="post">
-            <s:textfield name="hostname" label="Hostname" />
-            <s:textfield name="user" label="User" />
-            <s:password name="password" label="Password" />
-            <s:textfield name="database" label="Database" />
+            <s:textfield name="hostname" label="Hostname" required="true" />
+            <s:textfield name="user" label="User" required="true" />
+            <s:password name="password" label="Password" required="true" />
+            <s:textfield name="database" label="Database" required="true" />
+            <s:checkbox label="Skip column statistics" name="skipColStat" value="aBoolean" fieldValue="true" />
             <s:hidden name="timestamp" value="%{timestamp}" />
             <s:submit value="Backup" />
         </s:form>

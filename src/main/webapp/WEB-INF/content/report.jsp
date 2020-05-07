@@ -23,7 +23,7 @@
 <div class="container pale-blue leftbar border-blue">
 <p>Report</p>
 </div>
-    <p>Hi! 👋 It looks like your location is currently: <s:property value="timeZone"/></p>
+    <p>Hi! It looks like your location is currently: <s:property value="timeZone"/></p>
     <p>Where the local time is: <s:property value="time"/></p>
     <p>Your country: <s:property value="country"/></p>
     <p>Your region: <s:property value="regionName"/></p>
