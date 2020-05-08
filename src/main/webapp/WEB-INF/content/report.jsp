@@ -35,6 +35,6 @@
     <p>BGP whois information:</p>
     <p><pre><s:property value="bgpData"/></pre></p>
 <br/>
-<p><s:property value="timestamp"/></p>
+<p><s:property value="notice"/></p>
 </body>
 </html>

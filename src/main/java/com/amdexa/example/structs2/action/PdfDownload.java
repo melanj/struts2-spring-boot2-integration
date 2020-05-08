@@ -17,7 +17,7 @@ import java.util.Date;
 @Action(value = "/pdf", results = {
         @Result(type = "pdfstream", params = {
                 "location", "/WEB-INF/content/report.jsp",
-                "contentDisposition", "attachment;filename=jsppdf.pdf"
+                "contentDisposition", "attachment;filename=report_${timestamp}.pdf"
         })})
 public class PdfDownload extends ActionSupport {
 
@@ -32,13 +32,16 @@ public class PdfDownload extends ActionSupport {
     private String browser;
     private String bgpData;
     private String timestamp;
+    private String notice;
 
     @Autowired
     private HttpServletRequest request;
 
     @Override
     public String execute() {
-        setTimestamp("Generated on: " + (new Date()).toInstant().toString());
+        Date date = new Date();
+        setTimestamp(String.valueOf(date.getTime()));
+        setNotice("Generated on: " + date.toInstant().toString());
         return SUCCESS;
     }
 }
