@@ -16,12 +16,21 @@ import java.util.Date;
 @Setter
 public class IndexAction extends ActionSupport {
     private static final long serialVersionUID = 1L;
-    public static final String URL_TIME = "http://worldtimeapi.org/api/ip";
-    public static final String URL_IP = "http://ip-api.com/json";
-    public static final String URL_BGP_TMPL = "https://www.radb.net/query?advanced_query=" +
+    private static final String URL_TIME = "http://worldtimeapi.org/api/ip";
+    private static final String URL_IP = "http://ip-api.com/json";
+    private static final String URL_BGP_TMPL = "https://www.radb.net/query?advanced_query=" +
             "&keywords=%s&-T+option=&ip_option=&-i+option=";
-    public static final String START_POS_SIG = "query-result query-result-external\"><code>";
-    public static final String END_POS_SIG = "</code>";
+    private static final String START_POS_SIG = "query-result query-result-external\"><code>";
+    private static final String END_POS_SIG = "</code>";
+    private static final String USER_AGENT = "user-agent";
+    private static final String TIMEZONE = "timezone";
+    private static final String DATETIME = "datetime";
+    private static final String CLIENT_IP = "client_ip";
+    private static final String COUNTRY = "country";
+    private static final String REGION_NAME = "regionName";
+    private static final String CITY = "city";
+    private static final String ISP = "isp";
+    private static final String AS = "as";
     private String timeZone;
     private String time;
     private String clientIp;
@@ -42,21 +51,21 @@ public class IndexAction extends ActionSupport {
     @Action(value = "/index", results = {@Result(location = "index.jsp", name = "success")})
     public String execute() {
         setTimestamp(String.valueOf((new Date()).toInstant().toEpochMilli()));
-        setBrowser(request.getHeader("user-agent"));
+        setBrowser(request.getHeader(USER_AGENT));
         RestTemplate restTemplate = new RestTemplate();
         JSONObject response = restTemplate.getForEntity(URL_TIME, JSONObject.class).getBody();
         if (null != response) {
-            setTimeZone(response.getAsString("timezone"));
-            setTime(response.getAsString("datetime"));
-            setClientIp(response.getAsString("client_ip"));
+            setTimeZone(response.getAsString(TIMEZONE));
+            setTime(response.getAsString(DATETIME));
+            setClientIp(response.getAsString(CLIENT_IP));
         }
         response = restTemplate.getForEntity(URL_IP, JSONObject.class).getBody();
         if (null != response) {
-            setCountry(response.getAsString("country"));
-            setRegionName(response.getAsString("regionName"));
-            setCity(response.getAsString("city"));
-            setIsp(response.getAsString("isp"));
-            setAs(response.getAsString("as"));
+            setCountry(response.getAsString(COUNTRY));
+            setRegionName(response.getAsString(REGION_NAME));
+            setCity(response.getAsString(CITY));
+            setIsp(response.getAsString(ISP));
+            setAs(response.getAsString(AS));
         }
         String res = restTemplate.getForEntity(String.format(URL_BGP_TMPL,getAs().split(" ")[0]), String.class).getBody();
         if (null != res) {

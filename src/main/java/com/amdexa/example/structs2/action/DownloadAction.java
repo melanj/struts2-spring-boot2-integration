@@ -14,6 +14,7 @@ import org.apache.struts2.convention.annotation.Result;
 @Setter
 public class DownloadAction extends ActionSupport {
 
+    public static final String JAVA_IO_TMPDIR = "java.io.tmpdir";
     private InputStream fileInputStream;
     private String type;
     private String filename;
@@ -29,7 +30,7 @@ public class DownloadAction extends ActionSupport {
             @Result(location = "fail.jsp", name = ERROR)})
     public String execute() throws Exception {
         try {
-            String tempDir = System.getProperty("java.io.tmpdir");
+            String tempDir = System.getProperty(JAVA_IO_TMPDIR);
             setFileInputStream(new FileInputStream(new File(tempDir + "/" + filename + "." + getType())));
             return SUCCESS;
         } catch (Exception e) {
