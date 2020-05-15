@@ -42,7 +42,7 @@
             <s:textfield name="user" label="User" required="true" />
             <s:password name="password" label="Password" required="true" />
             <s:textfield name="database" label="Database" required="true" />
-            <s:checkbox label="Skip column statistics" name="skipColStat" value="aBoolean" fieldValue="true" />
+            <s:checkbox label="Skip column statistics (mysql 8 or later)" name="skipColStat" value="true" fieldValue="true" />
             <s:hidden name="timestamp" value="%{timestamp}" />
             <s:submit value="Backup" />
         </s:form>
