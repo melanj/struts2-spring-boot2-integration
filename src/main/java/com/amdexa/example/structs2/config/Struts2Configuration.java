@@ -14,11 +14,6 @@ import javax.servlet.Filter;
 @Configuration
 public class Struts2Configuration implements WebMvcConfigurer {
 
-
-    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
-            "classpath:/META-INF/resources/", "classpath:/resources/",
-            "classpath:/static/", "classpath:/public/"};
-
     private static final String[] STRUTS_RESOURCE_LOCATIONS = {"classpath:/template/"};
 
     @Bean
@@ -33,8 +28,6 @@ public class Struts2Configuration implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
-                .addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
         registry.addResourceHandler("/struts/**")
                 .addResourceLocations(STRUTS_RESOURCE_LOCATIONS);
     }
