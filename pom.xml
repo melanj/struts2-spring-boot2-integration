@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <spring-boot.version>2.6.3</spring-boot.version>
-        <struts.version>2.5.29</struts.version>
+        <struts.version>2.5.30</struts.version>
     </properties>
 
     <dependencies>
