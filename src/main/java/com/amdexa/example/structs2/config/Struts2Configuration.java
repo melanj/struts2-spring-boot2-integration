@@ -30,6 +30,8 @@ public class Struts2Configuration implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/struts/**")
                 .addResourceLocations(STRUTS_RESOURCE_LOCATIONS);
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations(STRUTS_RESOURCE_LOCATIONS);
     }
 
 }
