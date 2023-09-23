@@ -3,6 +3,10 @@ Spring Boot2 with Struts 2.5
 This is a sample Spring boot2 application integrated with Struts 2.5 and Struts2 jQuery Plugin
 
 ### **Updates**
+
+#### Sep 23 2023
+Updated Spring Boot to 2.7.16 and asm to 9.5, lombok to 1.18.30. now this project can build and run on Java 21
+
 #### Feb 12 2022
 Updated Spring Boot to 2.6.3 and Apache Struts 2.5.29 GA, asm to 9.2, now this project can build and run on Java 17
 
