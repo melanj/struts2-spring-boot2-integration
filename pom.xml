@@ -17,7 +17,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.7.16</spring-boot.version>
-        <struts.version>6.3.0.1</struts.version>
+        <struts.version>6.3.0.2</struts.version>
         <struts-jquery.version>5.0.3</struts-jquery.version>
     </properties>
 
